@@ -1,0 +1,35 @@
+{
+    "id": 1,
+    "gender": "female",
+    "firstName": "Rose",
+    "lastName": "Ruffner",
+    "streetAddress": "3846 St. Paul Street",
+    "city": "St Catharines",
+    "province": "ON",
+    "postalCode": "L2S 3A1",
+    "emailAddress": "RoseMRuffner@pookmail.com",
+    "ccType": "Visa",
+    "bloodType": "B+",
+    "phoneNumber": "905-401-7824",
+    "pounds": 226.6,
+    "heightInCM": 156,
+    "purchases":
+    [
+      {
+        "id": 78,
+        "sku": "woo-vneck-tee-blue",
+        "name": "V-Neck T-Shirt - Blue",
+        "salePrice": 14.0,
+        "regularPrice": 15.0,
+        "image": "https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/vnech-tee-blue-1.jpg"
+      },
+      {
+        "id": 46,
+        "sku": "woo-hoodie-with-logo",
+        "name": "Hoodie with Logo",
+        "salePrice": 44.0,
+        "regularPrice": 45.0,
+        "image": "https://woocommercecore.mystagingwebsite.com/wp-content/uploads/2017/12/hoodie-with-logo-2.jpg"
+      }
+    ]
+}
