@@ -12,7 +12,7 @@ For example, “T-shirt with Logo-$17.00”.*/
   private int id;
   private java.lang.String sku;
   private String name;
-  private double salesPrice;
+  private double salePrice;
   private double regularPrice;
   private String imageUrl;
 
@@ -29,8 +29,8 @@ For example, “T-shirt with Logo-$17.00”.*/
     return name;
   }
 
-  public double getSalesPrice(){
-    return salesPrice;
+  public double getSalePrice(){
+    return salePrice;
   }
 
   public double getRegularPrice(){
@@ -43,6 +43,6 @@ For example, “T-shirt with Logo-$17.00”.*/
 
   @Override
   public String toString(){
-    return String.format("%s-$%d", getName(), getSalesPrice());
+    return String.format("%s-$%d", getName(), getSalePrice());
   }
 }

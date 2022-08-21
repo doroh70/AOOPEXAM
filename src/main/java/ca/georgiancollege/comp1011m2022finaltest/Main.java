@@ -17,8 +17,8 @@ public class Main extends Application {
         Image icon = new Image(getClass().getResourceAsStream("icon.png"));
         stage.getIcons().add(icon);
         stage.setScene(scene);
-        //APIManager instance = APIManager.Instance();
-        //System.out.println(instance.parseJsonFile().get(0).getFirstName());
+        APIManager instance = APIManager.Instance();
+        System.out.println(instance.parseJsonFile().get(1).getFiveOrMore());
         stage.show();
     }
 
