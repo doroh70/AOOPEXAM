@@ -93,7 +93,31 @@ public class TableViewController implements Initializable {
             purchaseListView.getItems().clear();
             purchaseListView.getItems().addAll(selected.getProducts());
             //System.out.println(selected.getProducts());
+
+            /*Add labels that display the sum of the regular prices (msrpLabel) for all purchases, the sum of the sale
+            prices (saleLabel) and the total savings for that customer (savingsLabel).
+                    The savings should be calculated by subtracting the total sale price from the total regular price.*/
+
+            msrpLabel.setText(String.format("Sum of Regular Price is: $%.2f", getSumOfRegularPrice(newMovieSelected.getProducts())));
+            saleLabel.setText(String.format("Sum of Sale Price is: $%.2f", getSumOfSalePrice(newMovieSelected.getProducts())));
+            savingsLabel.setText(String.format("Total Savings for Customer is: $%.2f", getSumOfRegularPrice(newMovieSelected.getProducts()) - getSumOfSalePrice(newMovieSelected.getProducts())));
         });
 
+    }
+
+    public double getSumOfRegularPrice(Product[] products){
+        double sum = 0;
+        for(Product p: products){
+            sum +=p.getRegularPrice();
+        }
+        return sum;
+    }
+
+    public double getSumOfSalePrice(Product[] products){
+        double sum = 0;
+        for(Product p: products){
+            sum +=p.getSalePrice();
+        }
+        return sum;
     }
 }
