@@ -1,0 +1,28 @@
+.root{
+    -fx-background-color: #607D8B;
+    -fx-font-family: Gabriola;
+}
+#table{
+    -fx-background-color: #ff7f50;
+    -fx-font-family: Gabriola;
+}
+
+#button{
+    -fx-background-color: #7fffd4;
+    -fx-font-family: Gabriola;
+}
+
+#box{
+    -fx-background-color: #8fbc8f;
+    -fx-font-family: Gabriola;
+}
+
+#column{
+    -fx-background-color: #afeeee;
+    -fx-font-family: Gabriola;
+}
+
+#label{
+    -fx-background-color: #afeeee;
+    -fx-font-family: Gabriola;
+}

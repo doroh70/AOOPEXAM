@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.StackPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane prefHeight="800.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.121" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.georgiancollege.comp1011m2022finaltest.TableViewController">
+<AnchorPane prefHeight="800.0" prefWidth="1000.0" stylesheets="@app.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ca.georgiancollege.comp1011m2022finaltest.TableViewController">
    <children>
       <VBox alignment="CENTER" layoutX="22.0" layoutY="31.0" prefHeight="400.0" prefWidth="1000.0" spacing="40.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -21,13 +21,13 @@
                <children>
                   <VBox>
                      <children>
-                        <TableView fx:id="tableView" prefHeight="323.0" prefWidth="600.0">
+                        <TableView id="table" fx:id="tableView" prefHeight="323.0" prefWidth="600.0">
                           <columns>
-                            <TableColumn fx:id="idColumn" prefWidth="61.0" text="ID" />
+                            <TableColumn id="column" fx:id="idColumn" prefWidth="61.0" text="ID" />
                             <TableColumn fx:id="firstNameColumn" prefWidth="130.0" text="First Name" />
-                              <TableColumn fx:id="lastNameColumn" prefWidth="130.0" text="Last Name" />
+                              <TableColumn id="column" fx:id="lastNameColumn" prefWidth="130.0" text="Last Name" />
                               <TableColumn fx:id="phoneColumn" prefWidth="130.0" text="Phone" />
-                              <TableColumn fx:id="totalPurchaseColumn" prefWidth="120.0" text="Total Purchases" />
+                              <TableColumn id="column" fx:id="totalPurchaseColumn" prefWidth="120.0" text="Total Purchases" />
                           </columns>
                         </TableView>
                         <Label fx:id="rowsInTableLabel" text="Rows in table: " />
@@ -45,12 +45,12 @@
                   <VBox>
                      <children>
                         <Label text="Customer Purchases" />
-                        <ListView fx:id="purchaseListView" prefHeight="246.0" prefWidth="600.0" />
+                        <ListView id="box" fx:id="purchaseListView" prefHeight="246.0" prefWidth="600.0" />
                      </children>
                   </VBox>
                   <VBox alignment="CENTER_LEFT" prefHeight="273.0" prefWidth="313.0" spacing="20.0">
                      <children>
-                        <Label fx:id="msrpLabel" text="Label" />
+                        <Label id="label" fx:id="msrpLabel" text="Label" />
                         <Label fx:id="saleLabel" text="Label" />
                         <Label fx:id="savingsLabel" text="Label" />
                      </children>
@@ -59,9 +59,9 @@
             </HBox>
             <HBox spacing="20.0">
                <children>
-                  <Button mnemonicParsing="false" onAction="#top10Customers" prefWidth="300.0" text="Top 10 Customers" />
-                  <Button mnemonicParsing="false" onAction="#customersSavedOver5" prefWidth="300.0" text="Customers who saved over $5" />
-                  <Button mnemonicParsing="false" onAction="#loadAllCustomers" prefWidth="300.0" text="All Customers" />
+                  <Button id="button" mnemonicParsing="false" onAction="#top10Customers" prefWidth="300.0" text="Top 10 Customers" />
+                  <Button id="button" mnemonicParsing="false" onAction="#customersSavedOver5" prefWidth="300.0" text="Customers who saved over $5" />
+                  <Button id="button" mnemonicParsing="false" onAction="#loadAllCustomers" prefWidth="300.0" text="All Customers" />
                </children>
             </HBox>
          </children>
