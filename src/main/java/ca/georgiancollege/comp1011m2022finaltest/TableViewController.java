@@ -9,6 +9,7 @@ import javafx.scene.control.ListView;
 import javafx.scene.control.TableColumn;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 import java.net.URL;
@@ -71,7 +72,7 @@ public class TableViewController implements Initializable {
 
         top10.sort(columnComparator);
         tableView.getItems().clear();
-        tableView.getItems().addAll(top10.subList(0, 9));
+        tableView.getItems().addAll(top10.subList(0, 10));
         System.out.println("called method top10Customers()");
         rowsInTableLabel.setText("Rows in Table: "+tableView.getItems().size());
     }
@@ -87,7 +88,10 @@ public class TableViewController implements Initializable {
     @FXML
     private void loadAllCustomers()
     {
+        tableView.getItems().clear();
+        tableView.getItems().addAll(APIManager.Instance().parseJsonFile());
         System.out.println("called method loadAllCustomers");
+        rowsInTableLabel.setText("Rows in Table: "+tableView.getItems().size());
     }
 
     @Override
@@ -107,9 +111,16 @@ public class TableViewController implements Initializable {
         tableView.getItems().addAll(customers);
         rowsInTableLabel.setText("Rows in Table: "+tableView.getItems().size());
 
+        /**Adding Listener to purchasesListView Object*/
+        purchaseListView.getSelectionModel().selectedItemProperty().addListener((obs, oldProductSelected, newProductSelected) ->{
+            Product selected = newProductSelected;
+            Image productImage = new Image(selected.getImageUrl());
+            imageView.setImage(productImage);
+        });
+
         /**Adding Listener to tableView Object*/
-        tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldMovieSelected, newMovieSelected) ->{
-            Customer selected = newMovieSelected;
+        tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldCustomerSelected, newCustomerSelected) ->{
+            Customer selected = newCustomerSelected;
             purchaseListView.getItems().clear();
             purchaseListView.getItems().addAll(selected.getProducts());
             //System.out.println(selected.getProducts());
@@ -118,9 +129,9 @@ public class TableViewController implements Initializable {
             prices (saleLabel) and the total savings for that customer (savingsLabel).
                     The savings should be calculated by subtracting the total sale price from the total regular price.*/
 
-            msrpLabel.setText(String.format("Sum of Regular Price is: $%.2f", getSumOfRegularPrice(newMovieSelected.getProducts())));
-            saleLabel.setText(String.format("Sum of Sale Price is: $%.2f", getSumOfSalePrice(newMovieSelected.getProducts())));
-            savingsLabel.setText(String.format("Total Savings for Customer is: $%.2f", getSumOfRegularPrice(newMovieSelected.getProducts()) - getSumOfSalePrice(newMovieSelected.getProducts())));
+            msrpLabel.setText(String.format("Sum of Regular Price is: $%.2f", getSumOfRegularPrice(newCustomerSelected.getProducts())));
+            saleLabel.setText(String.format("Sum of Sale Price is: $%.2f", getSumOfSalePrice(newCustomerSelected.getProducts())));
+            savingsLabel.setText(String.format("Total Savings for Customer is: $%.2f", getSumOfRegularPrice(newCustomerSelected.getProducts()) - getSumOfSalePrice(newCustomerSelected.getProducts())));
         });
 
     }

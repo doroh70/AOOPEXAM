@@ -1,5 +1,7 @@
 package ca.georgiancollege.comp1011m2022finaltest;
 
+import com.google.gson.annotations.SerializedName;
+
 public class Product {
 
   /*This class should track the sku, name, sale price, regular price and a String to hold the url information
@@ -9,11 +11,17 @@ The toString() method should format the response as “[name]-$[sale price]”.
 For example, “T-shirt with Logo-$17.00”.*/
 
   //instance variables
+  @SerializedName("id")
   private int id;
+  @SerializedName("sku")
   private java.lang.String sku;
+  @SerializedName("name")
   private String name;
+  @SerializedName("salePrice")
   private double salePrice;
+  @SerializedName("regularPrice")
   private double regularPrice;
+  @SerializedName("image")
   private String imageUrl;
 
   //public services
