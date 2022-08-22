@@ -13,6 +13,8 @@ import javafx.scene.image.ImageView;
 
 import java.net.URL;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.ResourceBundle;
 
 public class TableViewController implements Initializable {
@@ -55,12 +57,23 @@ public class TableViewController implements Initializable {
     @FXML
     private void top10Customers()
     {
-        /*ArrayList<Customer> top10 = new ArrayList<>(tableView.getItems());
-        tableView.getItems().sort;
-        for(Customer c: tableView.getItems()){
+        ArrayList<Customer> top10 = new ArrayList<>(APIManager.Instance().parseJsonFile());
 
-        }*/
+        /**Creating a custom comparator*/
+        Comparator<Customer> columnComparator =
+                (Customer v1, Customer v2) -> {
+
+                    if(v1.getTotalPurchases() < v2.getTotalPurchases()) return 1;
+                    if(v1.getTotalPurchases() > v2.getTotalPurchases()) return -1;
+                    return 0;
+                };
+
+
+        top10.sort(columnComparator);
+        tableView.getItems().clear();
+        tableView.getItems().addAll(top10.subList(0, 9));
         System.out.println("called method top10Customers()");
+        rowsInTableLabel.setText("Rows in Table: "+tableView.getItems().size());
     }
 
     @FXML
