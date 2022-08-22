@@ -1,6 +1,7 @@
 package ca.georgiancollege.comp1011m2022finaltest;
 
 import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
@@ -85,6 +86,14 @@ public class TableViewController implements Initializable {
         //add your data to the table here.
         tableView.getItems().addAll(customers);
         rowsInTableLabel.setText("Rows in Table: "+tableView.getItems().size());
+
+        /**Adding Listener to tableView Object*/
+        tableView.getSelectionModel().selectedItemProperty().addListener((obs, oldMovieSelected, newMovieSelected) ->{
+            Customer selected = newMovieSelected;
+            purchaseListView.getItems().clear();
+            purchaseListView.getItems().addAll(selected.getProducts());
+            //System.out.println(selected.getProducts());
+        });
 
     }
 }

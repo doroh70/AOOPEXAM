@@ -43,6 +43,6 @@ For example, “T-shirt with Logo-$17.00”.*/
 
   @Override
   public String toString(){
-    return String.format("%s-$%d", getName(), getSalePrice());
+    return String.format("%s-$%f", getName(), getSalePrice());
   }
 }

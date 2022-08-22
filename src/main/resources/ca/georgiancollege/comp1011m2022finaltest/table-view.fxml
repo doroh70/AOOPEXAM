@@ -51,7 +51,7 @@
                   <VBox alignment="CENTER_LEFT" prefHeight="273.0" prefWidth="313.0" spacing="20.0">
                      <children>
                         <Label id="label" fx:id="msrpLabel" text="Label" />
-                        <Label fx:id="saleLabel" text="Label" />
+                        <Label id="label" fx:id="saleLabel" text="Label" />
                         <Label fx:id="savingsLabel" text="Label" />
                      </children>
                   </VBox>
