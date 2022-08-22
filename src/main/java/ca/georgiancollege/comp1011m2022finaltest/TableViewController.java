@@ -55,12 +55,19 @@ public class TableViewController implements Initializable {
     @FXML
     private void top10Customers()
     {
+        /*ArrayList<Customer> top10 = new ArrayList<>(tableView.getItems());
+        tableView.getItems().sort;
+        for(Customer c: tableView.getItems()){
+
+        }*/
         System.out.println("called method top10Customers()");
     }
 
     @FXML
     private void customersSavedOver5()
     {
+        tableView.getItems().removeIf(e -> e.getFiveOrMore() == false);
+        rowsInTableLabel.setText("Rows in Table: "+tableView.getItems().size());
         System.out.println("called method customersSavedOver5()");
     }
 
