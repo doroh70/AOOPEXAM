@@ -16,7 +16,7 @@ variables. Your code does NOT require Javadoc or set (mutator) methods. */
     private String firstName;
     @SerializedName("lastName")
     private String lastName;
-    @SerializedName("phone")
+    @SerializedName("phoneNumber")
     private String phone;
     @SerializedName("purchases")
     private Product[] products;
@@ -34,12 +34,11 @@ variables. Your code does NOT require Javadoc or set (mutator) methods. */
         return lastName;
     }
 
-    public String getPhone(){
-        return phone;
-    }
-
     public Product[] getProducts(){
         return products;
+    }
+    public String getPhone(){
+        return phone;
     }
 
     /*Create a method that returns the total purchases as a double. Each customer will have 0 or
